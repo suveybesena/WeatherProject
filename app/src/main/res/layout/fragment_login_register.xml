@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".view.LoginRegisterFragment">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="64dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="20dp"
+        android:text="LOGIN"
+        android:textColor="#595959"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_Mail"
+        app:layout_constraintStart_toStartOf="@+id/edt_Mail"
+        app:layout_constraintTop_toBottomOf="@+id/imw_Account" />
+
+    <EditText
+        android:id="@+id/edt_Mail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/edt_Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edt_Password"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btw_Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_Mail" />
+
+    <Button
+        android:id="@+id/btw_Login"
+        android:layout_width="322dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="103dp"
+        android:onClick="onc_Login"
+        android:background="@drawable/shape"
+        android:text="Login"
+        app:layout_constraintBottom_toTopOf="@+id/edt_SignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_Password" />
+
+    <TextView
+        android:id="@+id/edt_SignUp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="56dp"
+        android:onClick="onc_SignUp"
+        android:text="Don't have an account? SIGN UP"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:textColor="#595959"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btw_Login" />
+
+    <ImageView
+        android:id="@+id/imw_Account"
+        android:layout_width="160dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="12dp"
+        android:onClick="onc_AccountImage"
+        android:src="@drawable/ic_baseline_account_box_24"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
