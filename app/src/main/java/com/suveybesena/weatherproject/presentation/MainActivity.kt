@@ -1,4 +1,4 @@
-package com.suveybesena.weatherproject.view
+package com.suveybesena.weatherproject.presentation
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity

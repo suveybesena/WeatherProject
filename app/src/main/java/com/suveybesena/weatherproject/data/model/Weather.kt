@@ -1,7 +1,6 @@
-package com.suveybesena.weatherproject.model
+package com.suveybesena.weatherproject.data.model
 
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

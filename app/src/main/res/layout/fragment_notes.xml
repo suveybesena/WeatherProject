@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.NotesFragment"
     android:background="@drawable/notes"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    tools:context=".presentation.notes.NotesFragment">
 
 
     <LinearLayout
 
-        android:paddingTop="20dp"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center"
-        >
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        >
-
-        <TextView
-            android:id="@+id/tw_Today"
-            android:layout_width="297dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:padding="10dp"
-            android:text="My Tasks"
-            android:textColor="#595959"
-            android:textSize="20dp">
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        </TextView>
+            <TextView
+                android:id="@+id/tw_Today"
+                android:layout_width="297dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape"
+                android:padding="10dp"
+                android:text="My Tasks"
+                android:textColor="#595959"
+                android:textSize="20dp">
+
+            </TextView>
 
 
-        <ImageView
-            android:id="@+id/imw_NoteProfile"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_baseline_account_box_24"
-            android:layout_gravity="right">
+            <ImageView
+                android:id="@+id/imw_NoteProfile"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_baseline_account_box_24">
 
-        </ImageView>
-    </LinearLayout>
+            </ImageView>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tw_noteViewDesc"
@@ -67,55 +63,53 @@
             ></TextView>
 
 
-
-
-
     </LinearLayout>
 
     <LinearLayout
 
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:padding="10dp"
 
         >
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:background="@drawable/shape"
-    android:gravity="center"
-    >
-        <EditText
-            android:id="@+id/edt_Task"
-            android:paddingLeft="8dp"
-            android:layout_width="296dp"
-            android:textColor="#FF2E303E"
-            android:layout_height="wrap_content"
-            android:hint="Create a task or note.    ">
 
-        </EditText>
-        <ImageView
-            android:id="@+id/btw_AddNotes"
-            android:onClick="onc_AddNotes"
-            android:layout_gravity="right"
-            android:padding="10dp"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_add_24"
-            ></ImageView>
-</LinearLayout>
+            android:layout_height="match_parent"
+            android:background="@drawable/shape"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/edt_Task"
+                android:layout_width="296dp"
+                android:layout_height="wrap_content"
+                android:hint="Create a task or note.    "
+                android:paddingLeft="8dp"
+                android:textColor="#FF2E303E">
+
+            </EditText>
+
+            <ImageView
+                android:id="@+id/btw_AddNotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:onClick="onclickAddNotes"
+                android:padding="10dp"
+                android:src="@drawable/ic_baseline_add_24"></ImageView>
+        </LinearLayout>
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -137,8 +131,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>

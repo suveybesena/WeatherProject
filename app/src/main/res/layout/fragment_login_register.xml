@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login"
-    tools:context=".view.LoginRegisterFragment">
+    tools:context=".presentation.auth.AuthFragment">
 
 
     <TextView
@@ -58,8 +58,8 @@
         android:layout_marginStart="49dp"
         android:layout_marginEnd="49dp"
         android:layout_marginBottom="103dp"
-        android:onClick="onc_Login"
         android:background="@drawable/shape"
+        android:onClick="onclickLogin"
         android:text="Login"
         app:layout_constraintBottom_toTopOf="@+id/edt_SignUp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,11 +73,11 @@
         android:layout_marginStart="44dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="56dp"
-        android:onClick="onc_SignUp"
+        android:onClick="onclickSignUp"
         android:text="Don't have an account? SIGN UP"
         android:textAlignment="center"
-        android:textSize="15sp"
         android:textColor="#595959"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
         android:layout_height="137dp"
         android:layout_marginTop="77dp"
         android:layout_marginBottom="12dp"
-        android:onClick="onc_AccountImage"
+        android:onClick="onclickAccountImage"
         android:src="@drawable/ic_baseline_account_box_24"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"

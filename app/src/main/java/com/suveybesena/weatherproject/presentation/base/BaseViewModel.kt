@@ -1,4 +1,4 @@
-package com.suveybesena.weatherproject.viewmodel
+package com.suveybesena.weatherproject.presentation.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

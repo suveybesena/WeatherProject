@@ -1,7 +1,6 @@
-package com.suveybesena.weatherproject.view
+package com.suveybesena.weatherproject.presentation.auth
 
 import android.app.Activity
-import android.content.ContentProvider
 import android.content.ContentResolver
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -15,36 +14,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.suveybesena.weatherproject.R
-import com.suveybesena.weatherproject.viewmodel.LoginViewModel
-import com.suveybesena.weatherproject.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_login_register.*
-import java.util.*
 
 
-class LoginRegisterFragment : Fragment() {
-
-
-    private lateinit var  contentResolver: ContentResolver
-
+class AuthFragment : Fragment() {
+    private val viewModel: AuthViewModel by viewModels()
+    private lateinit var contentResolver: ContentResolver
     private lateinit var auth: FirebaseAuth
-    private lateinit var viewModel: LoginViewModel
-
-    var pickedImage : Uri? = null
-    var bitmap : Bitmap? = null
-
-    private lateinit var storage : FirebaseStorage
-
-    private lateinit var database : FirebaseFirestore
-
+    var pickedImage: Uri? = null
+    var bitmap: Bitmap? = null
+    private lateinit var storage: FirebaseStorage
+    private lateinit var database: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,55 +49,54 @@ class LoginRegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        contentResolver = requireActivity().contentResolver
-        storage= FirebaseStorage.getInstance()
-        auth = FirebaseAuth.getInstance()
-        database = FirebaseFirestore.getInstance()
+        getInstance()
+        checkCurrentUser()
+        initListeners()
 
-        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+    }
 
-
-        auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-        if (currentUser != null){
-            var action = LoginRegisterFragmentDirections.actionLoginRegisterFragmentToMainFragment()
-            Navigation.findNavController(view).navigate(action)
-
+    private fun initListeners() {
+        edt_SignUp.setOnClickListener { view ->
+            onclickSignUp(view)
         }
-
-        edt_SignUp.setOnClickListener {
-            onc_SignUp(it)
+        btw_Login.setOnClickListener { view ->
+            onclickLogin(view)
         }
-        btw_Login.setOnClickListener {
-            onc_Login(it)
-        }
-
         imw_Account.setOnClickListener {
-            onc_AccountImage(it)
+            onclickAccountImage()
         }
+    }
+
+    private fun checkCurrentUser() {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val action = AuthFragmentDirections.actionLoginRegisterFragmentToMainFragment()
+            Navigation.findNavController(requireView()).navigate(action)
+
+        }
+    }
+
+    private fun getInstance() {
+        contentResolver = requireActivity().contentResolver
+        storage = FirebaseStorage.getInstance()
+        database = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
+    }
+
+    private fun onclickSignUp(view: View) {
+        val mail = edt_Mail.text.toString()
+        val password = edt_Password.text.toString()
+        viewModel.onclickSignUp(mail, password, requireContext(), view, pickedImage!!)
 
     }
 
-    fun onc_SignUp(view: View) {
-        var mail = edt_Mail.text.toString()
-        var password = edt_Password.text.toString()
-    viewModel.onc_SignUp(mail,password,requireContext(), view,pickedImage!!)
-
+    private fun onclickLogin(view: View) {
+        val mail = edt_Mail.text.toString()
+        val password = edt_Password.text.toString()
+        viewModel.pickPhoto(mail, password, view, requireContext())
     }
 
-    fun onc_Login(view: View) {
-        var mail = edt_Mail.text.toString()
-        var password = edt_Password.text.toString()
-        viewModel.pickPhoto(mail, password,view,requireContext())
-
-    }
-
-
-
-
-
-    fun onc_AccountImage (view: View) {
-
+    private fun onclickAccountImage() {
         if (ContextCompat.checkSelfPermission(
                 this.requireContext(),
                 android.Manifest.permission.READ_EXTERNAL_STORAGE
@@ -145,7 +132,7 @@ class LoginRegisterFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode ==2 && resultCode== Activity.RESULT_OK && data != null) {
+        if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
 
             pickedImage = data.data
 

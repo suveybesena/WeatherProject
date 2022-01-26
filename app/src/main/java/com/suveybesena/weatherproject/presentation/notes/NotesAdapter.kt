@@ -1,4 +1,4 @@
-package com.suveybesena.weatherproject.adapter
+package com.suveybesena.weatherproject.presentation.notes
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.suveybesena.weatherproject.R
 import kotlinx.android.synthetic.main.recycler_row.view.*
 
-class RecyclerAdapter (val notesList : ArrayList<String>) :RecyclerView.Adapter<RecyclerAdapter.NotesVH> (){
+class NotesAdapter (val notesList : ArrayList<String>) :RecyclerView.Adapter<NotesAdapter.NotesVH> (){
     class NotesVH (itemView: View) : RecyclerView.ViewHolder (itemView){
 
     }

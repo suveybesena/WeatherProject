@@ -1,4 +1,4 @@
-package com.suveybesena.weatherproject.model
+package com.suveybesena.weatherproject.data.model
 
 
 import com.google.gson.annotations.SerializedName
