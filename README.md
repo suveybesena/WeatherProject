@@ -18,4 +18,4 @@
 <li>Navigation</li>
 </ul>
 <h3>App Images</h3>
-![Screenshot_3](https://user-images.githubusercontent.com/85364012/151252501-c8d07cc9-a7f6-4920-92c3-3d58a2d5d919.png)
+<img src= "https://user-images.githubusercontent.com/85364012/151252501-c8d07cc9-a7f6-4920-92c3-3d58a2d5d919.png"width=30% height=30%>
