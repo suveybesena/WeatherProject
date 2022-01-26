@@ -1,5 +1,6 @@
 <h1>WeatherProject</h1>
 
+In this project, I showed the weather at the current location using GPS data and the weather I got from the API based on the search, there is also a to do list with the user mails and notes that I saved in Firebase.
 
 
 <h3>Libraries Used</h3>
